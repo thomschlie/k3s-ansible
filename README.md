@@ -58,3 +58,19 @@ To get access to your **Kubernetes** cluster just
 ```bash
 scp debian@master_ip:~/.kube/config ~/.kube/config
 ```
+## Vagrant
+
+With 
+```bash
+vagrant up
+```
+virtual machines are created. In the moment only master1 is in the cluster. The other masters are ignored. 
+```bash
+vagrant@master1:~$ sudo kubectl get nodes
+NAME      STATUS   ROLES                  AGE   VERSION
+node1     Ready    <none>                 60s   v1.22.3+k3s1
+master1   Ready    control-plane,master   98s   v1.22.3+k3s1
+node3     Ready    <none>                 64s   v1.22.3+k3s1
+node2     Ready    <none>                 62s   v1.22.3+k3s1
+```
+The number of master and nodes can be changed in `Vagrantfile`.
